@@ -1,5 +1,12 @@
 .body-login-register{
-    background-image: url(../img/geometry.png);
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/fondo.jpg');
+    background-size: 100%; /* Ajusta el valor según el nivel de zoom deseado */
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+
 }
 
 .image-upload {
@@ -42,4 +49,5 @@
 .image-upload input[type="file"]:focus + i {
     opacity: 0; 
 }
+
 

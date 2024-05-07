@@ -55,45 +55,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
   <link href="css/output.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <title>Login</title>
+  <style>
+    /* Estilos adicionales */
+    .container {
+      width: 90%; /* Ancho del contenedor principal */
+    }
+  </style>
 </head>
 <body class="flex justify-center items-center h-screen body-login-register">
-    <div class="bg-white shadow-md rounded px-16 pt-8 pb-8 m-24 max-w-lg ">
-        <h1 class="text-2xl font-semibold  text-green-700 mb-6 text-center titulo no-underline">Iniciar sesión</h1>
-        <form action="#" method="POST">
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="codigo_estudiante">
-                    Codigo
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="codigo_estudiante" name="codigo_estudiante"  type="number" placeholder="10 digitos" >
-            </div>
-            <div class="mb-4">
-                <label class="block text-gray-700 text-sm font-bold mb-2" for="contrasena">
-                    Contraseña
-                </label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="contrasena" name="contrasena" type="password" placeholder="***********">
-            </div>
-            <div class="mb-4">
-                <p class=" text-sm font-bold mb-2 text-red-600" id="error"></p>
-
+    <div class="relative overflow-hidden bg-white shadow-md rounded m-24 w-1/4 max-w-full flex">
+        <div class="bg-gray-800 w-1/12"></div>
+        <div class="px-16 py-8 flex-grow w-11/12 max-w-full container">
+            <h1 class="text-2xl font-semibold bg-gray-800  text-white p-2 text-center titulo no-underline rounded-3xl">Iniciar sesión</h1>
+            <form action="#" method="POST">
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-md font-bold mb-2 mt-4" for="codigo_estudiante">
+                        Codigo
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="codigo_estudiante" name="codigo_estudiante"  type="number" placeholder="10 digitos" >
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700 text-md font-bold mb-2" for="contrasena">
+                        Contraseña
+                    </label>
+                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="contrasena" name="contrasena" type="password" placeholder="***********">
+                </div>
+                <div class="mb-4">
+                    <p class="text-sm font-bold mb-2 text-red-600" id="error"></p>
                     <?php if(isset($error)) { ?>
-                        <p class=" text-sm font-bold mb-2 text-red-600" id="error"> <?php echo $error; ?></p>
+                        <p class="text-sm font-bold mb-2 text-red-600" id="error"><?php echo $error; ?></p>
                     <?php }?>
-                
-            </div>
-            <div class="mb-6">
-                <a href="register.php" class="text-sm font-bold mb-2 no-underline text-blue-300">No tienes cuentas?Registrarse</a>
-            </div>
-            <div class="flex items-center justify-center">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline " type="submit" name="login">
-                    Iniciar sesión
-                </button>
-            </div>
-        </form>
+                </div>
+                <div class="mb-6">
+                    <a href="register.php" class="text-sm font-bold mb-2 no-underline text-blue-300">No tienes cuenta? Registrarse</a>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline " type="submit" name="login">
+                        Iniciar sesión
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -73,87 +73,90 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['registro'])) {
 </head>
 <body class="flex justify-center items-center h-screen body-login-register">
     <!--Formulario-->
-    <div class="bg-white shadow-md rounded px-16 pt-8 pb-8 m-24 max-w-lg">
-        <h1 class=" text-2xl text-green-500 font-semibold mb-6 text-center ">Registrarse</h1>
-        <form action="#" method="POST"  onsubmit="return validarFormulario()" enctype="multipart/form-data">
-            <div class="grid grid-cols-2 gap-4 mb-4">
-                <!-- Fotos -->
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="foto_perfil">
-                        Foto de perfil
-                    </label>
-                    <div class="image-upload" ondrop="soltarArchivo(event, 'img_perfil')" ondragover="arrastrarSobre(event)">
-                        <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*" onchange="cambiarArchivo(event, 'img_perfil', 'icon_perfil')">
-                        <i id="icon_perfil" class="fas fa-camera"></i>
-                        <img id="img_perfil" src="#" alt="Foto de perfil" style="display: none;">
+    <div class="relative overflow-hidden bg-white shadow-md rounded m-24 w-1/3 max-w-full flex">
+    <div class="bg-gray-800 w-1/12"></div>
+    <div class="px-16 py-8 flex-grow w-11/12 max-w-full container"> 
+        <h1 class="text-2xl font-semibold bg-gray-800  text-white p-2 text-center titulo no-underline rounded-3xl">Registrarse</h1>
+            <form action="#" method="POST"  onsubmit="return validarFormulario()" enctype="multipart/form-data">
+                <div class="grid grid-cols-2 gap-4 mb-4 mt-5">
+                    <!-- Fotos -->
+                    <div class="mb-4 ">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="foto_perfil">
+                            Foto de perfil
+                        </label>
+                        <div class="image-upload" ondrop="soltarArchivo(event, 'img_perfil')" ondragover="arrastrarSobre(event)">
+                            <input type="file" id="foto_perfil" name="foto_perfil" accept="image/*" onchange="cambiarArchivo(event, 'img_perfil', 'icon_perfil')">
+                            <i id="icon_perfil" class="fas fa-camera"></i>
+                            <img id="img_perfil" src="#" alt="Foto de perfil" style="display: none;">
+                        </div>
                     </div>
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="foto_credencial">
-                        Foto de la credencial
-                    </label>
-                    <div class="image-upload" ondrop="soltarArchivo(event, 'img_credencial')" ondragover="arrastrarSobre(event)">
-                        <input type="file" id="foto_credencial" name="foto_credencial" accept="image/*" onchange="cambiarArchivo(event, 'img_credencial','icon_credencial')">
-                        <i id="icon_credencial" class="fas fa-camera"></i>
-                        <img id="img_credencial" src="#" alt="Foto de la credencial de estudiante" style="display: none;">
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="foto_credencial">
+                            Foto de la credencial
+                        </label>
+                        <div class="image-upload" ondrop="soltarArchivo(event, 'img_credencial')" ondragover="arrastrarSobre(event)">
+                            <input type="file" id="foto_credencial" name="foto_credencial" accept="image/*" onchange="cambiarArchivo(event, 'img_credencial','icon_credencial')">
+                            <i id="icon_credencial" class="fas fa-camera"></i>
+                            <img id="img_credencial" src="#" alt="Foto de la credencial de estudiante" style="display: none;">
+                        </div>
                     </div>
+                    <!-- Otros datos-->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="nombre_apellidos">
+                            Nombre(s) y Apellido(s)
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="nombre_apellidos" id="nombre_apellidos" type="text" placeholder="Nombre y apellido">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="correo_electronico">
+                            Correo institucional
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="correo_electronico" id="correo_electronico" type="email" placeholder="ejemplo@alumnos.udg.mx">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="numero_telefono">
+                            Telefono
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="numero_telefono" name="numero_telefono" type="text" placeholder="10 digitos">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="codigo_estudiante">
+                            Codigo de estudiante
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="codigo_estudiante" name="codigo_estudiante" type="text" placeholder="9 digitos">
+                    </div>
+                    <div class="mb-4 ">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="password">
+                            Contraseña
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="**********">
+                    </div>
+                    <div class="mb-4 ">
+                        <label class="block text-gray-700 text-md font-bold mb-2" for="password2">
+                            Confirmar contraseña
+                        </label>
+                        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password2" type="password" name="password2" placeholder="**********">
+                    </div>
+                    
                 </div>
-                <!-- Otros datos-->
                 <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre_apellidos">
-                        Nombre(s) y Apellido(s)
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="nombre_apellidos" id="nombre_apellidos" type="text" placeholder="Nombre y apellido">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="correo_electronico">
-                        Correo institucional
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="correo_electronico" id="correo_electronico" type="email" placeholder="ejemplo@alumnos.udg.mx">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="numero_telefono">
-                        Telefono
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="numero_telefono" name="numero_telefono" type="text" placeholder="10 digitos">
-                </div>
-                <div class="mb-4">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="codigo_estudiante">
-                        Codigo de estudiante
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="codigo_estudiante" name="codigo_estudiante" type="text" placeholder="9 digitos">
-                </div>
-                <div class="mb-4 ">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                        Contraseña
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" type="password" name="password" placeholder="**********">
-                </div>
-                <div class="mb-4 ">
-                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password2">
-                        Confirmar contraseña
-                    </label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password2" type="password" name="password2" placeholder="**********">
-                </div>
-                
-            </div>
-            <div class="mb-4">
-                <p class=" text-sm font-bold mb-2 text-red-600" id="Error"></p>
+                    <p class=" text-sm font-bold mb-2 text-red-600" id="Error"></p>
 
-                <?php if(isset($errores)){ ?>
-                    <p class=" text-sm font-bold mb-2 text-red-600"><?php echo $errores; ?></p>
-                <?php } ?>
-                
-            </div>
-            <div class="mb-6">
-                <a href="login.php" class="text-sm font-bold mb-2 no-underline text-blue-300">¿Ya tienes cuenta? Iniciar sesión</a>
-            </div>
-            <div class="flex items-center justify-center">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" name="registro" type="submit">
-                    Registrarse
-                </button>
-            </div>
-        </form>
+                    <?php if(isset($errores)){ ?>
+                        <p class=" text-sm font-bold mb-2 text-red-600"><?php echo $errores; ?></p>
+                    <?php } ?>
+                    
+                </div>
+                <div class="mb-6">
+                    <a href="login.php" class="text-sm font-bold mb-2 no-underline text-blue-300">¿Ya tienes cuenta? Iniciar sesión</a>
+                </div>
+                <div class="flex items-center justify-center">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" name="registro" type="submit">
+                        Registrarse
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
     <script src="js/script.js"></script>
 </body>
